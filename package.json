@@ -1,0 +1,26 @@
+{
+  "name": "simpleemployeeapp",
+  "version": "1.0.0",
+  "description": "Simple employee app with expressjs, nodejs, mongodb & mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kangnurrohman/SimpleEmployeeApp.git"
+  },
+  "author": "Ainur Rohman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kangnurrohman/SimpleEmployeeApp/issues"
+  },
+  "homepage": "https://github.com/kangnurrohman/SimpleEmployeeApp#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2",
+    "path": "^0.12.7"
+  }
+}
