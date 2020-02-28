@@ -17,18 +17,22 @@
 				<th>Operations</th>
 			</tr>
 		</tfoot>
-		<tr>
-			<td>Mike</td>
-			<td>Manager</td>
-			<td>$12000</td>
-			<td>
-				<a class="btn btn-primary" href="#">Edit</a>
-				<form style="display: inline;" action="#" method="post">
-					<input type="hidden" name="_method" value="DELETE">
-					<button style="cursor: pointer;" type="submit" class="btn btn-danger">Delete</button>
-				</form>
-			</td>
-		</tr>
+		<tbody>
+			<% employees.forEach((employee => { %>
+			<tr>
+				<td><%- employee.name %></td>
+				<td><%- employee.designation %></td>
+				<td><%- employee.salary %></td>
+				<td>
+					<a class="btn btn-primary" href="#">Edit</a>
+					<form style="display: inline;" action="#" method="post">
+						<input type="hidden" name="_method" value="DELETE">
+						<button style="cursor: pointer;" type="submit" class="btn btn-danger">Delete</button>
+					</form>
+				</td>
+			</tr>
+			<%	})); %>
+		</tbody>
 	</table>
 </div>
 <%- include('partials/footer') -%>
