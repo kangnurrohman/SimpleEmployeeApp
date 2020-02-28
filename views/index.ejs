@@ -1,0 +1,34 @@
+<%- include('partials/header') -%>
+<div class="container mt-5">
+	<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Designation</th>
+				<th>Salary</th>
+				<th>Operations</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th>Name</th>
+				<th>Designation</th>
+				<th>Salary</th>
+				<th>Operations</th>
+			</tr>
+		</tfoot>
+		<tr>
+			<td>Mike</td>
+			<td>Manager</td>
+			<td>$12000</td>
+			<td>
+				<a class="btn btn-primary" href="#">Edit</a>
+				<form style="display: inline;" action="#" method="post">
+					<input type="hidden" name="_method" value="DELETE">
+					<button style="cursor: pointer;" type="submit" class="btn btn-danger">Delete</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+</div>
+<%- include('partials/footer') -%>
