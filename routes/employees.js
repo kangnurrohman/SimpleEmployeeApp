@@ -3,6 +3,8 @@ const router = express.Router();
 
 const Employee = require('../models/employee');
 
+// start route get
+
 router.get('/', (req, res) => {
 	Employee.find({})
 		.then(employees => {
@@ -12,7 +14,6 @@ router.get('/', (req, res) => {
 		})
 		.catch(err => {
 			console.log(err);
-
 		})
 });
 
@@ -38,9 +39,25 @@ router.get('/employee', (req, res) => {
 		})
 		.catch(err => {
 			console.log(err);
-
 		})
 });
+
+router.get('/edit/:id', (req, res) => {
+	let searchQuery = {
+		_id: req.params.id
+	};
+	Employee.findOne(searchQuery)
+		.then(employee => {
+			res.render('edit', {
+				employee
+			});
+		})
+		.catch(err => {
+			console.log(err);
+		})
+});
+
+// start route post
 
 router.post('/employee/new', (req, res) => {
 	let newEmployee = {
@@ -50,6 +67,26 @@ router.post('/employee/new', (req, res) => {
 	};
 
 	Employee.create(newEmployee)
+		.then(employee => {
+			res.redirect('/');
+		})
+		.catch(err => {
+			console.log(err);
+		});
+});
+
+// start route put
+router.put('/edit/:id', (req, res) => {
+	let searchQuery = {
+		_id: req.params.id
+	};
+	Employee.updateOne(searchQuery, {
+			$set: {
+				name: req.body.name,
+				designation: req.body.designation,
+				salary: req.body.salary
+			}
+		})
 		.then(employee => {
 			res.redirect('/');
 		})
