@@ -20,6 +20,28 @@ router.get('/employee/new', (req, res) => {
 	res.render('new');
 });
 
+router.get('/employee/search', (req, res) => {
+	res.render('search', {
+		employee: ""
+	});
+});
+
+router.get('/employee', (req, res) => {
+	let searchQuery = {
+		name: req.query.name
+	};
+	Employee.findOne(searchQuery)
+		.then(employee => {
+			res.render('search', {
+				employee
+			});
+		})
+		.catch(err => {
+			console.log(err);
+
+		})
+});
+
 router.post('/employee/new', (req, res) => {
 	let newEmployee = {
 		name: req.body.name,

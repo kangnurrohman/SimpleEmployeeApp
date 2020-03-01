@@ -20,9 +20,9 @@
 		<tbody>
 			<% employees.forEach((employee => { %>
 			<tr>
-				<td><%- employee.name %></td>
-				<td><%- employee.designation %></td>
-				<td><%- employee.salary %></td>
+				<td><%= employee.name %></td>
+				<td><%= employee.designation %></td>
+				<td>$<%= employee.salary %></td>
 				<td>
 					<a class="btn btn-primary" href="#">Edit</a>
 					<form style="display: inline;" action="#" method="post">
