@@ -76,6 +76,7 @@ router.post('/employee/new', (req, res) => {
 });
 
 // start route put
+
 router.put('/edit/:id', (req, res) => {
 	let searchQuery = {
 		_id: req.params.id
@@ -94,4 +95,20 @@ router.put('/edit/:id', (req, res) => {
 			console.log(err);
 		});
 });
+
+// delete routes start
+
+router.delete('/delete/:id', (req, res) => {
+	let searchQuery = {
+		_id: req.params.id
+	};
+	Employee.deleteOne(searchQuery)
+		.then(employee => {
+			res.redirect('/');
+		})
+		.catch(err => {
+			console.log(err);
+		})
+});
+
 module.exports = router;
