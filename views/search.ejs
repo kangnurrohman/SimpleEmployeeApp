@@ -26,6 +26,8 @@
    </tr>
   </tbody>
  </table>
+ <% } else if(employee != '') { %>
+ <div class="alert alert-danger mt-4">Employee does not exist with this name</div>
  <% } %>
 </div>
 <%- include('partials/footer') -%>

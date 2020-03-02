@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
 			});
 		})
 		.catch(err => {
+			req.flash('error_msg', 'ERROR:' + err);
 			console.log(err);
 		})
 });
@@ -38,6 +39,7 @@ router.get('/employee', (req, res) => {
 			});
 		})
 		.catch(err => {
+			req.flash('error_msg', 'ERROR:' + err);
 			console.log(err);
 		})
 });
@@ -53,6 +55,7 @@ router.get('/edit/:id', (req, res) => {
 			});
 		})
 		.catch(err => {
+			req.flash('error_msg', 'ERROR:' + err);
 			console.log(err);
 		})
 });
@@ -68,9 +71,11 @@ router.post('/employee/new', (req, res) => {
 
 	Employee.create(newEmployee)
 		.then(employee => {
+			req.flash('success_msg', 'Employee data added to database successfully');
 			res.redirect('/');
 		})
 		.catch(err => {
+			req.flash('error_msg', 'ERROR:' + err);
 			console.log(err);
 		});
 });
@@ -89,9 +94,11 @@ router.put('/edit/:id', (req, res) => {
 			}
 		})
 		.then(employee => {
+			req.flash('success_msg', 'Employee data updated successfully');
 			res.redirect('/');
 		})
 		.catch(err => {
+			req.flash('error_msg', 'ERROR:' + err);
 			console.log(err);
 		});
 });
@@ -104,9 +111,11 @@ router.delete('/delete/:id', (req, res) => {
 	};
 	Employee.deleteOne(searchQuery)
 		.then(employee => {
+			req.flash('success_msg', 'Employee deleted successfully');
 			res.redirect('/');
 		})
 		.catch(err => {
+			req.flash('error_msg', 'ERROR:' + err);
 			console.log(err);
 		})
 });
